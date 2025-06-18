@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class ProductController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request)
+    {
+        // Debugging: Log all products count
+        Log::info('Total products: ' . Product::count());
+        Log::info('Available products: ' . Product::where('available', true)->count());
+        
+        try {
+            $query = Product::query();
+            
+            // We'll enable this filter after debugging
+            // $query->where('available', true);
+            
+            // Filter by category if specified
+            if ($request->has('category')) {
+                $query->where('category', $request->category);
+            }
+
+            // Filter by price range if specified
+            if ($request->has('min_price')) {
+                $query->where('price', '>=', $request->min_price);
+            }
+            
+            if ($request->has('max_price')) {
+                $query->where('price', '<=', $request->max_price);
+            }
+
+            // Search by name if specified
+            if ($request->has('search')) {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            }
+
+            // Order by price
+            if ($request->has('sort')) {
+                $query->orderBy('price', $request->sort === 'asc' ? 'asc' : 'desc');
+            } else {
+                $query->orderBy('name');
+            }
+
+            $products = $query->paginate(12)->withQueryString();
+            Log::info('Products count from query: ' . $products->count());
+        } catch (\Exception $e) {
+            Log::error('Error loading products: ' . $e->getMessage());
+            // Create an empty paginator as a fallback
+            $products = new LengthAwarePaginator(
+                [],
+                0,
+                12,
+                1,
+                ['path' => $request->url(), 'query' => $request->query()]
+            );
+        }
+        
+        return view('products.index', compact('products'));
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        try {
+            $product = Product::findOrFail($id);
+            
+            // Redirect to products page if product is not available
+            if (!$product->available) {
+                return redirect()->route('products.index')
+                    ->with('error', 'This product is currently not available.');
+            }
+            
+            return view('products.show', compact('product'));
+        } catch (\Exception $e) {
+            Log::error('Error showing product: ' . $e->getMessage());
+            return redirect()->route('products.index')
+                ->with('error', 'Product not found.');
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
