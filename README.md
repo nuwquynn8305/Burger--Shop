@@ -1,5 +1,8 @@
 # 🍔 Burger Shop - Laravel E-Commerce Application
 
+## Họ Tên Sinh Viên : Đinh Thị Như Quỳnh 
+## Mã SV : 23010844
+
 [![Laravel](https://img.shields.io/badge/Laravel-12.x-red?style=flat-square&logo=laravel)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-blue?style=flat-square&logo=php)](https://php.net)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13+-blue?style=flat-square&logo=postgresql)](https://postgresql.org)
@@ -322,6 +325,51 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 2. Chọn thanh toán -> VNPAY
 3. Chọn thẻ nội địa (NCB), nhập số thẻ: 9704198526191432198, NGUYEN VAN A, 07/15
 4. Nhập OTP 123456.
+
+---
+
+## **1. UseCase**
+![image](https://github.com/user-attachments/assets/97cdc58e-e971-4f5f-85cb-20b24ea26793)
+
+<p align="center"><em>Figure 1.1: usecase</em></p>
+
+## **2.Class diagram**
+![image](https://github.com/user-attachments/assets/b66e65d5-9437-49ca-bf5e-9318166b45c8)
+
+<p align="center"><em>Figure 2.1: class diagram</em></p>
+
+## **3. Activity diagram**
+![image](https://github.com/user-attachments/assets/09a9119f-8bd4-4622-800c-711ec8204816)
+
+<p align="center"><em>Figure 3.1: đăng ký</em></p>
+
+![image](https://github.com/user-attachments/assets/3867439e-a7fc-4e97-9f06-fd5bf9ab9b36)
+
+<p align="center"><em>Figure 3.2: đăng nhập</em></p>
+
+![image](https://github.com/user-attachments/assets/f52b4bb0-e463-4305-83fb-eb9c428b12de)
+
+<p align="center"><em>Figure 3.3: xem danh sách sản phẩm</em></p>
+
+![image](https://github.com/user-attachments/assets/66e50fd0-67c7-4939-a9c2-23652fffb0ef)
+
+<p align="center"><em>Figure 3.4: đặt hàng sản phẩm</em></p>
+
+![image](https://github.com/user-attachments/assets/a692a2d1-2d92-4627-9a1f-9d67f11b17cc)
+
+<p align="center"><em>Figure 3.5: xem lịch sử</em></p>
+
+![image](https://github.com/user-attachments/assets/040e29dc-06ae-4b1f-b189-fa91af71322c)
+
+<p align="center"><em>Figure 3.6: thanh toán đơn hàng</em></p>
+
+![image](https://github.com/user-attachments/assets/5dc5f545-43d8-4693-a430-c21486a1d5b8)
+
+<p align="center"><em>Figure 3.7: quản lý sản phẩm</em></p>
+
+![image](https://github.com/user-attachments/assets/b65e4e2a-15e1-438a-b650-9c731864545d)
+
+<p align="center"><em>Figure 3.8: quản lý đơn hànghàng</em></p>
 
 ---
 
