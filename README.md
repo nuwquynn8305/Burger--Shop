@@ -373,6 +373,18 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 
 ---
 
+## 🏢 Quy Trình Nghiệp Vụ 
+
+![image](https://github.com/user-attachments/assets/4d251cd1-75cd-4fcd-b556-3c43979df89c)
+
+<p align="center"><em>Giao diện đăng ký</em></p>
+
+![image](https://github.com/user-attachments/assets/3fa61080-f605-4e95-8361-171b05c64b8c)
+
+<p align="center"><em>Giao diện đăng nhập</em></p>
+
+
+
 ## 🎯 Chạy Ứng Dụng
 
 ### **Development Mode**
