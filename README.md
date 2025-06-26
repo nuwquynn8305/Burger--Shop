@@ -383,7 +383,42 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 
 <p align="center"><em>Giao diện đăng nhập</em></p>
 
-## 1 sốsố Code Minh Họa 
+![image](https://github.com/user-attachments/assets/237d86dd-3db4-4bc3-aacb-282b5305316a)
+
+<p align="center"><em>Giao diện Menu</em></p>
+
+![image](https://github.com/user-attachments/assets/d6cbf5a5-71e6-4c05-9765-4020dd8dfe10)
+
+<p align="center"><em>Giao diện Cart</em></p>
+
+![image](https://github.com/user-attachments/assets/1b76db14-d928-4131-9ab2-33d7a1e608cf)
+
+<p align="center"><em>Giao diện My Orders</em></p>
+
+![image](https://github.com/user-attachments/assets/25e59c43-4abb-4ce5-8104-59963ade48a8)
+
+<p align="center"><em>Giao  Admin Panel / Quản trị</em></p>
+
+![image](https://github.com/user-attachments/assets/17fee421-a18f-411b-b79d-7fe7951f5db8)
+
+<p align="center"><em>Quản lý sản phẩm trong cửa hàng burger</em></p>
+
+![image](https://github.com/user-attachments/assets/357753f1-2e18-4367-a07a-8571421f614c)
+
+<p align="center"><em>Quản lý tài khoản người dùng và phân quyền</em></p>
+
+![image](https://github.com/user-attachments/assets/4ee14e90-4557-406e-baf0-98c66e687b0b)
+
+<p align="center"><em>Quản lý tất cả đơn hàng của khách hàng</em></p>
+
+![image](https://github.com/user-attachments/assets/281397ec-46a2-4046-886b-a2eeef155061)
+
+<p align="center"><em>Giao diện đặt hàng thành </em></p>
+
+---
+
+
+## Một số số Code Minh Họa 
 ** order.php **
 ```php
 <?php
