@@ -383,6 +383,92 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 
 <p align="center"><em>Giao diện đăng nhập</em></p>
 
+## 1 sốsố Code Minh Họa 
+** order.php **
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Order extends Model
+{
+    use HasFactory;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'total_price',
+        'payment_method',
+        'status',
+        'address',
+        'phone',
+        'notes',
+        'transaction_id',
+    ];
+    
+    /**
+     * Get the user that owns the order.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    /**
+     * Get the order items for the order.
+     */
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+}
+```
+** ProductController.php **
+```php
+// app/Http/Controllers/ProductController.php
+
+public function index(Request $request)
+{
+    $query = Product::query();
+
+    // Debug log (kiểm tra số lượng sản phẩm)
+    Log::info("Total products: " . Product::count());
+
+    // Lọc theo trạng thái còn hàng
+    $query->where('available', true);
+
+    // Lọc theo danh mục nếu có
+    if ($request->has('category') && !empty($request->category)) {
+        $query->where('category', $request->category);
+    }
+
+    // Tìm kiếm theo tên hoặc mô tả nếu có
+    if ($request->has('search') && !empty($request->search)) {
+        $this->applySearchToQuery($query, $request->search, ['name', 'description']);
+    }
+
+    // Sắp xếp theo giá hoặc tên
+    if ($request->has('sort') && in_array($request->sort, ['asc', 'desc'])) {
+        $query->orderBy('price', $request->sort);
+    } else {
+        $query->orderBy('name');
+    }
+
+    // Phân trang 24 sản phẩm mỗi trang
+    $products = $query->paginate(24)->withQueryString();
+
+    return view('products.index', compact('products'));
+}
+```
 
 
 ## 🎯 Chạy Ứng Dụng
