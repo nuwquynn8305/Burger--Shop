@@ -383,7 +383,7 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 
 <p align="center"><em>Giao diện đăng nhập</em></p>
 
-## 1 sốsố Code Minh Họa 
+## Một số Code Minh Họa 
 ** order.php **
 ```php
 <?php
