@@ -415,6 +415,10 @@ VNPAY_RETURN_URL=${APP_URL}/payment/callback
 
 <p align="center"><em>Giao diện đặt hàng thành </em></p>
 
+![image](https://github.com/user-attachments/assets/21015da3-dd88-444c-b34f-d1af75a8f315)
+
+<p align="center"><em>Phương thức thanh toán</em></p>
+
 ---
 
 
